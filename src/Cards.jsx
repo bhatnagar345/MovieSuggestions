@@ -1,26 +1,37 @@
-import React from "react";
-import Allmw from "./Allmw";
-import Navbar from "./Navbar";
+import React  from 'react';
+import { NavLink } from 'react-router-dom';
 
-const Cards = () => {
-    
-    const Carr = Allmw;
+
+
+
+const Navbar = (props) => {
+    // const number = props.id;
+    // const Watching = () =>{
+    //     alert(`i m watching ${number} `);
+    //     <Watchnow id = {number}/>;
+    // };
     return (
-        Carr.map((val, index) => {
-            return (<>
-                <Navbar
-                    key={index}
-                    images={val.link}
-                    title={val.title}
-                    date={val.Date}
-                    btao={val.what}
-                    links={val.Watch}
-                />
-
-            </>
-            )
-        })
+        <>
+        <div className = {`container ${props.btao}`}>
+            <div className = "images">
+                <img src = {props.images}/>
+            </div>
+            <div className = "sec">
+            <div className = "about">
+                <h4> {props.title}</h4>
+                <p> {props.btao} </p>
+                <p> {props.date}</p>
+            </div>
+            <div className = "buttons">
+              
+                <a href = {props.links} target = "_blank">Watch Now</a>
+                {/* <a href = "/watch" >Wacthlist</a> */}
+                <NavLink exact to="/watch"  >WatchList </NavLink>
+            </div> 
+            </div>
+        </div>
+        </>
     )
-};
+}
 
-export default Cards;
+export default Navbar;

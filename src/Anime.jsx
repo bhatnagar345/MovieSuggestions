@@ -1,6 +1,6 @@
 import React ,{useEffect , useState} from "react";
-import Navbar from "./Navbar";
-import Allmw from "./Allmw";
+import Navbar from "./Cards";
+// import Allmw from "./Allmw";
 const Mcards = () => {
   //     const Marr = [
   //         {

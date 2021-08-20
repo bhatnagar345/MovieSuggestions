@@ -2,9 +2,9 @@
 import React , {useEffect, useState} from 'react'
 import Watchlist from './Watchlist';
 // import Navbar from './Navbar';
-import Cards from './Cards';
-import Mcards from './Mcards';
-import Wcards from './Wcards';
+import Cards from './Trending';
+import Mcards from './Anime';
+import Wcards from './WebSeries';
 import { Route, Switch } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import Popular from './Popular';
@@ -37,6 +37,7 @@ function App() {
     <h1 className = "tittle">Top Movies , Anime and Web-Series to Watch in 2021</h1>
     <div className = "WholeSection">
     <div className = "leftmenu">
+    
      <Home/>
      
     </div>

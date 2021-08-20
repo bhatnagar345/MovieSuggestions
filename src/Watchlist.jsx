@@ -3,7 +3,7 @@ import ToDolists from './ToDolists';
 import './main.css';
 // import Iform from './Iform';
 
-import Cards from './Cards';
+import Cards from './Trending';
 
 
 const Watchlist = () => {

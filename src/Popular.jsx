@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import Navbar from './Navbar';
+import Navbar from './Cards';
 
 const Popular = () =>{
     const [caa, setcaa] = useState([]);

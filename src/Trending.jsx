@@ -1,25 +1,26 @@
 import React from "react";
-import Navbar from "./Navbar";
 import Allmw from "./Allmw";
-const Wcards = () => {
+import Navbar from "./Cards";
+
+const Cards = () => {
     
-    const web = Allmw.filter((value) =>{
-        return (value.what === "Web-Series");
-    });
+    const Carr = Allmw;
     return (
-        web.map((val, index) => {
-            return (
+        Carr.map((val, index) => {
+            return (<>
                 <Navbar
                     key={index}
                     images={val.link}
                     title={val.title}
                     date={val.Date}
                     btao={val.what}
-                    links = {val.Watch}
+                    links={val.Watch}
                 />
+
+            </>
             )
         })
     )
-}
+};
 
-export default Wcards;
+export default Cards;
