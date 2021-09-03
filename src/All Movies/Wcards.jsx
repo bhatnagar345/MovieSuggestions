@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "./Cards";
+import Navbar from "../Navbar";
 import Allmw from "./Allmw";
 const Wcards = () => {
     

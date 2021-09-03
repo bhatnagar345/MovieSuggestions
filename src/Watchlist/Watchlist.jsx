@@ -1,15 +1,14 @@
-import React, {  useState } from 'react';
+import React, {  useState} from 'react';
 import ToDolists from './ToDolists';
 import './main.css';
-// import Iform from './Iform';
-
-import Cards from './Trending';
 
 
-const Watchlist = () => {
-   const ch = Cards;
+
+
+const Watchlist = (props) => {
+//    const ch = Cards;
     const [listname, setinputlist] = useState('');
-    const [item, setitem] = useState([])
+    const [item, setitem] = useState([]);
     
 
 
@@ -50,16 +49,17 @@ const Watchlist = () => {
             <div className="main_div">
                 <div className="center_div">
                     <br />
-                    <h1>Hello Harsh !!</h1>
+                    <h1 className="watchs" style={{ color: "#d3d31e",fontFamily: "'Baloo Bhai 2',cursive",fontWeight:"500"}}>List Your Favourite Movie/Web-Series</h1>
                     <br />
                     <div className ="alag">
                         <input type="text"
                             placeholder="ADD Your Fav Movies and Webseries or Any Comments"
                             onChange={itemEvent}
+                            id ="alag"
                             value={listname}
                             required
                         />
-                        <button onClick={listofitem}> + </button>
+                        <button onKeyUpCapture={listofitem} onClick={listofitem} > + </button>
                         {/* { < Navbar go = {listofitem}/>} */}
                         
                         

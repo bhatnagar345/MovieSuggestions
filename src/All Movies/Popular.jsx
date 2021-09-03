@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import Navbar from './Cards';
+import Navbar from '../Navbar';
 
 const Popular = () =>{
     const [caa, setcaa] = useState([]);
@@ -10,14 +10,14 @@ const Popular = () =>{
         setcaa(actual.results);
      };
 
-     const [css , setcss] = useState([])
+    //  const [css , setcss] = useState([])
 
-     const getdatas = async () =>{
-        const ress = await fetch("https://api.jikan.moe/v3/top/anime/1/bypopularity");
-        const actuals = await ress.json();
-        setcss(actuals.top.slice(0,5));
-        // setcaa(actual.results);
-     };
+    //  const getdatas = async () =>{
+    //     const ress = await fetch("https://api.jikan.moe/v3/top/anime/1/bypopularity");
+    //     const actuals = await ress.json();
+    //     setcss(actuals.top.slice(0,5));
+    //     // setcaa(actual.results);
+    //  };
     
 
 

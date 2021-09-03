@@ -1,0 +1,83 @@
+body  
+{  
+    margin: 0;  
+    padding: 0;  
+     
+}  
+.login{  
+        width: 100%;  
+        overflow: hidden;  
+        margin: auto;  
+        margin: 20 0 0 450px;  
+        padding: 80px;  
+        background: #23463f;  
+        border-radius: 15px ;  
+          
+}  
+
+.login label{  
+    color: #08ffd1;  
+    font-size: 17px;  
+}  
+#Uname{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+}  
+#Pass{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+      
+}  
+#log{  
+    width: 100px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 17px;  
+    /* padding-left: 7px;   */
+    color: black;  
+    margin-left: 8rem;
+    cursor: pointer;
+  
+}  
+.login span{  
+    color: white;  
+    font-size: 17px;  
+}  
+
+.close1{
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    background-color: transparent;
+    color: white;
+}
+
+
+@media only screen and (max-width: 600px){
+    #log{
+        margin-left: 5px;
+            width: 70px;
+            height: 20px;
+            border-radius: 17px;
+            padding-left: 0px;
+    }
+    #Pass{  
+        width: 100px;  
+        height: 20px;    
+        padding-left: 8px;  
+    }
+    #Uname{
+        width: 100px;  
+        height: 20px;    
+        padding-left: 8px; 
+    } 
+    .login{
+        padding: 25px;
+    }
+}
