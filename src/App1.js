@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Watchlist from './Watchlist/Watchlist';
 import Cards from './All Movies/Cards';
 import Mcards from './All Movies/Anime';
@@ -8,21 +8,47 @@ import { NavLink } from 'react-router-dom';
 import Popular from './All Movies/Popular';
 import './index.css';
 import Header from './header/Header';
+import firebase from 'firebase';
 
 
-function App1(props) {
+function App1() {
+
+  const [blogs, setBlogs] = useState([]);
+  const fetching = () => {
+    let list = [];
+
+    firebase.database().ref('hbsuggest').on("value", snapshot => {
+
+      snapshot.forEach((snap, id) => {
+
+        var key = snap.key;
+        var data = snap.val();
+        list.push({ key: key, tit: data.tit, img: data.img , watchs : data.watchs});
+
+      });
+    });
+
+    setBlogs(list);
+    
+
+  }
+
+  useEffect(() => {
+
+    fetching();
+  },[]);
+
 
   const value = (add) => {
 
     document.getElementById("chnge").innerHTML = `${add}`;
 
   }
-  const [colors, setcolors] = useState(true)
-
+  const [colors, setcolors] = useState(false)
 
   const theme = () => {
     if (colors) {
-      if(document.getElementById("filter")){
+      if (document.getElementById("filter")) {
         document.getElementById("filter").classList.toggle("filter12")
       }
       document.getElementById("right").style.backgroundColor = "#ffffff";
@@ -30,8 +56,8 @@ function App1(props) {
 
       document.getElementById("dark").style.color = "black";
       document.getElementById("chnge").style.color = "black";
-      
-       
+
+
       setcolors(!colors);
     }
     else if (!colors) {
@@ -40,10 +66,10 @@ function App1(props) {
       document.getElementById("dark").style.color = "white";
       document.getElementById("chnge").style.color = "#d3d31e";
       // document.getElementById("alag").style.color ="white";
-      if(document.getElementById("filter")){
+      if (document.getElementById("filter")) {
         document.getElementById("filter").classList.toggle("filter12")
       }
-       
+
       setcolors(!colors);
     }
 
@@ -56,12 +82,12 @@ function App1(props) {
         <h2 className="filter" id="filter">Filter</h2>
 
 
-        <NavLink exact to="/" activeClassName="selected" className="fav" onClick={() => { value("Trending Movies/Web-Series") }}> Trending </NavLink>
-        <NavLink exact to="/movies" activeClassName="selected" className="fav" onClick={() => { value("Top Rank Animes") }}> Anime </NavLink>
-        <NavLink exact to="/popular" activeClassName="selected" className="fav" onClick={() => { value("Popular On Social Media") }}> Popular </NavLink>
-        <NavLink exact to="/web" activeClassName="selected" className="fav" onClick={() => { value("Best Web-Series") }}> Web-Series </NavLink>
+        <NavLink exact to="/" activeClassName="selected" className="fav" onClick={(() => { value("Trending Movies/Web-Series") },fetching)}> Trending </NavLink>
+        <NavLink exact to="/movies" activeClassName="selected" className="fav" onClick={(() => { value("Top Rank Animes") },fetching)}> Anime </NavLink>
+        <NavLink exact to="/popular" activeClassName="selected" className="fav" onClick={(() => { value("Popular On Social Media") },fetching)}> Popular </NavLink>
+        <NavLink exact to="/web" activeClassName="selected" className="fav" onClick={(() => { value("Best Web-Series") },fetching)}> Web-Series </NavLink>
         {/* <NavLink exact t0 = "/wl"  activeClassName = "selected" className = "fav" > WatchList</NavLink> */}
-        <NavLink exact to="/watch" activeClassName="selected" className="fav" onClick={() => { value("") }}> Watch-Lists </NavLink>
+        <NavLink exact to="/watch" activeClassName="selected" className="fav" onClick={(() => { value("") } ,fetching)}> Watch-Lists </NavLink>
 
       </div>
 
@@ -74,10 +100,10 @@ function App1(props) {
     <Header />
     <div className="right" id="right">
       <span className="tittle" >
-        <h1 id="chnge">Trending Movies/Web-Series</h1>
+        <h1 id="chnge" style={{ color: "black" }}>Trending Movies/Web-Series</h1>
       </span>
       <div className="dark">
-        <span style={{ margin: "0px 5px" }} id="dark">Light Mode</span>
+        <span style={{ margin: "0px 5px" }} id="dark">Dark Mode</span>
         <label class="switch" >
           <input type="checkbox" onClick={theme} />
           <span class="slider round"></span>
@@ -90,7 +116,7 @@ function App1(props) {
     </div>
 
     <div className="WholeSection" id="Whole">
-      <div className="leftmenu" id ="left">
+      <div className="leftmenu" id="left">
         <Home />
 
       </div>
@@ -101,8 +127,10 @@ function App1(props) {
           <Route exact path="/" component={Cards} />
 
           <Route exact path="/movies" component={Mcards} />
-          <Route exact path="/web" component={Wcards} />
-          <Route exact path="/watch" component={Watchlist} />
+          <Route exact path="/web"  >
+            <Wcards />
+          </Route>
+          <Route exact path="/watch" > <Watchlist blog ={blogs} /> </Route>
           <Route exact path="/popular" component={Popular} />
 
         </Switch>

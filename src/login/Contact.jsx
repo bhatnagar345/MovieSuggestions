@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState } from 'react';
 import './login.css'
 import Popup from 'reactjs-popup';
 import Header from '../header/Header';
@@ -16,13 +16,9 @@ const ControlledPopup = () => {
   const cleModal =()=>{
     if(document.getElementById('log1')){
       document.getElementById('log1').style.display='none';
-      
-  
+      document.getElementById('second-header').style.display='block';
        }
-       if(document.getElementById('logout')){
-        document.getElementById('logout').style.display='block';
-        
-        }
+      
     setOpen(false);
   }
   
@@ -36,15 +32,7 @@ const ControlledPopup = () => {
       
       <li className="heading mini" id ="log1" > <a style={{cursor:"pointer"}} onClick={() => setOpen(o => !o)} >Log in</a></li>
       <Popup  open={open} closeOnDocumentClick onClose={closeModal} style={{border: "20px"}}>
-        {/* <div className="modal">
-          <a className="close" onClick={closeModal}>
-          <i class="fas fa-window-close"></i>
-          </a>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae magni
-          omnis delectus nemo, maxime molestiae dolorem numquam mollitia, voluptate
-          ea, accusamus excepturi deleniti ratione sapiente! Laudantium, aperiam
-          doloribus. Odit, aut.
-        </div> */}
+        
         <div class="login">   
         <a className="close1" onClick={closeModal}>
           <i class="fas fa-window-close"></i>
@@ -53,12 +41,12 @@ const ControlledPopup = () => {
         <label><b>User Name :  &nbsp;&nbsp;   
         </b>    
         </label>    
-        <input type="text" name="Uname" id="Uname" placeholder="Username"/>    
+        <input type="text" name="Uname" id="Uname" placeholder="Username" required/>    
         <br/><br/>    
         <label><b>Password : &nbsp; &nbsp; &nbsp;    
         </b>    
         </label>    
-        <input type="Password" name="Pass" id="Pass" placeholder="Password"/>    
+        <input type="Password" name="Pass" id="Pass" placeholder="Password" required/>    
         <br/><br/>    
         <input type="button" name="log" id="log" value="Login" onClick={cleModal}/>       
         <br/><br/>    

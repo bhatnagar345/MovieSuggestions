@@ -38,6 +38,7 @@ const Popular = () =>{
             date = {val.release_date}
             btao = {` Rating : ${val.vote_average}`}
             links = "#"
+            index = {index}
                 />
 
             </>

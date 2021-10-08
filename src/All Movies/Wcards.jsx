@@ -16,6 +16,7 @@ const Wcards = () => {
                     date={val.Date}
                     btao={val.what}
                     links = {val.Watch}
+                   
                 />
             )
         })

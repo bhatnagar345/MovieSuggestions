@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Popup from 'reactjs-popup';
+// import Modal from 'react-modal';
 
 const PopupExample = () => (
     <Popup trigger={<li className="heading mini"><i class="fas fa-bell" style = {{color : "#fe8732"}}></i></li>} position='bottom center'>

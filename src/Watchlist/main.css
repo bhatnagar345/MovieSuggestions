@@ -7,6 +7,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
   }
   
+  
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
@@ -130,7 +131,7 @@ body {
     min-height: 40px;
     display: flex;
     align-items: center;
-    padding-left: 5px;
+    padding-left: 15px;
     background-color: white;
   }
   .todo-style i{
@@ -154,4 +155,33 @@ body {
     background-color: white;
     color: tomato;
   }
-  
+  ol li img{
+    border-radius: 50%;
+    margin:0px 20px;
+    margin-right: 30px;
+  }
+  ol li p{
+    margin-left: 15px;
+  }
+  @media (max-width:700px)
+  {
+    ol li{
+      padding-left: 0px;
+      font-size: 13px;
+    }
+   ol li img{
+      margin: 0px;
+      margin-right: 5px;
+      width: 50px;
+      height: 40px;
+    }
+    ol li p{
+      margin-left: 0px;
+      margin: 0;
+      font-size: 13px;
+    }
+    .todo-style i{
+      left: 2px;
+      margin: 0;
+    }
+  }
